@@ -1,55 +1,53 @@
 import React,{ useRef, useState} from 'react';
 import Logo from '../Images/Showcase.png';
-import {Link, useHistory} from 'react-router-dom';
-import { db } from '../firebaseConfig';
+import {Link} from 'react-router-dom';
 import { useAuth, AuthProvider } from '../Context/AuthContext';
-import '../styles/loginBg.css';
 import {Grid, Paper, Typography,Button,TextField} from '@material-ui/core';
 import { Alert } from 'react-bootstrap';
-
-function Login() {
+function ForgotPassword() {
 
     const emailRef = useRef();
-    const passwordRef = useRef();
-    const history = useHistory();
 
-    const {login} = useAuth(); 
-    
+    const {resetPassword} = useAuth(); 
     const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
     async function handleSubmit(e){
         e.preventDefault();
         
         try{
+            setMessage('');
             setError('')
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value);
-            history.push('/');
-            setError('logged in');
+            await resetPassword(emailRef.current.value);
+            setMessage('Check your inbox for further instructions')
+            setError('pasword set');
         }
-        catch{
-            setError('Failed to logged in');
+        catch
+        {
+            setError('Failed to Reset Password');
         }
+
         setLoading(false);
     }
     return (
         <>
-            <Grid className = "login_bg">
+            <Grid>
             {error && <Alert variant='danger'>{error}</Alert> }
-                <Paper elevation = {10} style = {{padding : 15, height : '60vh', width :340 ,margin:' 0 20vh'}}>
+            {message && <Alert variant='success'>{message}</Alert> }
+                <Paper elevation = {10} style = {{padding : 15, height : '60vh', width :340, margin:'10vh auto'}}>
                     <Grid align='center'>
                         <img src={Logo} style={{height:'50px',marginBottom:'20px'}} />
-                        <h5><strong>Sign In</strong></h5>
+                        <h5><strong>Password Reset</strong></h5>
                     </Grid>
                     <form onSubmit={handleSubmit}>
-                        <TextField label = 'Username or Email' placeholder ='Enter username or email' inputRef={emailRef} fullWidth required />
-                        <TextField label = 'Password(should contain at least 6 char)' placeholder ='Enter password' type ='password'  inputRef={passwordRef} fullWidth required />
-                        <Button type='Submit' disabled= {loading} color ='primary' style={{margin:'20px 0px'}} variant = 'contained' fullWidth>Sign In</Button>
+                        <TextField label = 'Email' placeholder ='Enter registered email' inputRef={emailRef} fullWidth required />
+                        <Button type='Submit' disabled= {loading} color ='primary' style={{margin:'20px 0px'}} variant = 'contained' fullWidth>Reset Password</Button>
                     </form>
                     <Typography>
-                        <Link  to='/forgot-password' style={{textDecoration : "none"}}>
-                            Forgot Password?
+                        <Link to = '/login' style={{textDecoration : "none"}}>
+                            Cancel
                         </Link>
                     </Typography>
                     <Typography> Don't have an account ? 
@@ -63,4 +61,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default ForgotPassword;

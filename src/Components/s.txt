@@ -1,0 +1,20 @@
+ {/**/}
+
+
+
+                         <Form.Group>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control placeholder ='Enter username' inputRef={userRef}  />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type = 'email' placeholder ='Enter username' inputRef ={emailRef} fullWidth required />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control  type ='password' placeholder ='Enter username' inputRef ={passwordRef} fullWidth required />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type ='password' placeholder ='Enter username' inputRef ={passwordConfirmRef} fullWidth required />
+                        </Form.Group>

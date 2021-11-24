@@ -5,16 +5,15 @@ import '../styles/CardStyle.css'
 import {FaHeart,FaRegHeart} from 'react-icons/fa';
 
 
-
-const Cards = ({key,ImageUrl,userUrl,username,caption}) => {
+const SmallCards = ({ImageUrl, username, userUrl, caption}) => {
     return (
-            <div className ="card" style={{minWidth: "19rem",minHeight:'25rem', objectFit:"cover"}}>
+            <div className ="card" style={{minWidth: "6rem"}}>
                 <div className="card_header">
                     <Image className = "Avtar_Image" src={userUrl} roundedCircle />
                     <h6 className  ="card_title">{username}</h6>
                 </div>
-                <div className="card_image" style={{minWidth:"18rem",minHeight:"18rem"}}>
-                    <img  className ="card-img-top" src={ImageUrl} alt="Card image cap"/>
+                <div className="card_image">
+                    <img style={{objectFit:"cover"}} className ="card-img-top" src={ImageUrl} alt="Card image cap"/>
                 </div>
                 <div className  ="card-body">
                     <div className="card_buttons">
@@ -27,4 +26,4 @@ const Cards = ({key,ImageUrl,userUrl,username,caption}) => {
     );
 }
 
-export default Cards;
+export default SmallCards;
