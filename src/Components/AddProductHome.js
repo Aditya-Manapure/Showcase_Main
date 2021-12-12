@@ -4,6 +4,7 @@ import AddProduct from './AddProduct';
 function AddProductHome() {
     return (
         <>
+            
             <AddProduct />
         </>
     )

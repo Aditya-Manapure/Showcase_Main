@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import defaultUserImg from '../Images/product.png';
 import {storage, db } from '../firebaseConfig';
+import { Link } from 'react-router-dom';
 import {Alert} from 'react-bootstrap';
 import '../styles/AddProductStyle.css';
 
@@ -10,6 +11,12 @@ function AddProduct() {
 
     const [error, setError] = useState("");
     const [productName, setProductName] = useState("");
+    const [subDetails, setSubDetails] = useState("");
+    const [category, setCategory] = useState("");
+    const [highlight1, setHighLight1] = useState("");
+    const [highlight2, setHighLight2] = useState("");
+    const [highlight3, setHighLight3] = useState("");
+    const [username, setUserName] = useState("");
     const [productPrice, setProductPrice] = useState(0);
     const [productCaption, setProductCaption] = useState("");
     const [productImg, setProductImg] = useState(defaultUserImg);
@@ -59,7 +66,13 @@ function AddProduct() {
                     productName : productName,
                     productPrice : Number(productPrice),
                     productImg : url,
-                    productCaption :productCaption
+                    productCaption :productCaption,
+                    subDetails : subDetails,
+                    category : category,
+                    highlight1 : highlight1,
+                    highlight2 : highlight2,
+                    highlight3 : highlight3,
+                    username : username
 
                 }).then(() => {
                     setProductName('');
@@ -67,6 +80,12 @@ function AddProduct() {
                     setProductImg(defaultUserImg);
                     setProductCaption('');
                     setError('');
+                    setCategory('');
+                    setHighLight1('');
+                    setHighLight2('');
+                    setHighLight3('');
+                    setUserName('');
+                    setSubDetails('');
                     document.getElementById('file').value ='';
 
                 }).catch(err => setError(err.message));
@@ -74,7 +93,7 @@ function AddProduct() {
         })
     }
     return (
-        <>
+        <div className="background">
             <section className="product_bg">
             <div className="addProduct_container">
                 {error && <Alert variant="danger">{error}</Alert>}
@@ -91,7 +110,9 @@ function AddProduct() {
                         </aside>
                         <section>
                             <label htmlFor="product-name" className="mov_right" >Product Name</label>
-                            <input type="text" style={{width : '20rem'}} className="form-control mov_right" required onChange = {(e) => setProductName(e.target.value)} value={productName} />
+                            <input type="text" style={{width : '20rem'}} className="form-control mov_right" required onChange = {(e) => setProductName(e.target.value)} value={productName} /><br/>
+                            <label htmlFor="product-category" className="mov_right" >Category</label>
+                            <input type="text" style={{width : '20rem'}} className="form-control mov_right" required onChange = {(e) => setCategory(e.target.value)} value={category} />
                             <br/>
                             <label htmlFor="product-price" className="mov_right" >Price</label>
                             <input type="number" className="form-control mov_right" required onChange = {(e) => setProductPrice(e.target.value)} value={productPrice} />
@@ -99,14 +120,22 @@ function AddProduct() {
                     </section>
                     <br/>
                         <label htmlFor="product-caption" >Caption</label>
-                        <input type="text" className="form-control" required onChange = {(e) => setProductCaption(e.target.value)} value={productCaption} />
+                        <input type="text" className="form-control" required onChange = {(e) => setProductCaption(e.target.value)} value={productCaption} /><br/>
+                        <label htmlFor="product-caption" >Sub Details</label>
+                        <input type="text" className="form-control" required onChange = {(e) => setSubDetails(e.target.value)} value={subDetails} /><br/>
+                        <label htmlFor="product-caption" >Highlight 1</label>
+                        <input type="text" className="form-control" required onChange = {(e) => setHighLight1(e.target.value)} value={highlight1} /><br/>
+                        <label htmlFor="product-caption" >Highlight 2</label>
+                        <input type="text" className="form-control" required onChange = {(e) => setHighLight2(e.target.value)} value={highlight2} /><br/>
+                        <label htmlFor="product-caption" >Highlight 3</label>
+                        <input type="text" className="form-control" required onChange = {(e) => setHighLight3(e.target.value)} value={highlight3} />
                         <br/>
                         <input type="submit" className ="add_btn" value ="ADD" />
                 </form>
-                
+                <button style={{margin:'15px 0px 0px 20px'}}><Link to="/" style={{margin:'20px', textDecoration:'none'}}>Cancel</Link></button>
             </div>
             </section>
-        </>
+        </div>
     )
 }
 

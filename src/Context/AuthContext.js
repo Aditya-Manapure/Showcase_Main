@@ -1,5 +1,8 @@
 import React,{ useContext, useState, useEffect } from 'react'
 import {auth, db} from '../firebaseConfig.js';
+
+import { updateProfile } from "firebase/auth";
+
 const AuthContext = React.createContext({});
 
 export function useAuth() {
@@ -26,6 +29,15 @@ export function AuthProvider ({children}) {
     function resetPassword(email) {
         return auth.sendPasswordResetEmail(email);
     }
+
+    function updateprofile(name , url) {
+        return updateProfile(currentUser, {
+            displayName: name, 
+            photoURL: url
+        })
+    }
+
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user =>{
             setLoading(false);
@@ -39,6 +51,7 @@ export function AuthProvider ({children}) {
         login,
         signup,
         logout,
+        updateprofile,
         resetPassword
     }
 

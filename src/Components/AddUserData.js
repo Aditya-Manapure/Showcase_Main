@@ -3,10 +3,8 @@ import defaultUserImg from '../Images/defaultUserImg.png';
 import {storage, db } from '../firebaseConfig';
 import { useHistory } from 'react-router';
 import {Alert} from 'react-bootstrap';
-import '../styles/AddProductStyle.css';
+import '../styles/AddUserStyle.css';
 import {useAuth} from '../Context/AuthContext';
-
-
 
 function AddUserData() {
 
@@ -21,7 +19,7 @@ function AddUserData() {
 
     const history = useHistory();
 
-    const {currentUser} = useAuth();
+    const {currentUser, updateprofile} = useAuth();
 
     const userImgHandler = (e) =>{
 
@@ -66,9 +64,11 @@ function AddUserData() {
                     userBio :userBio,
                     userEmail : currentUser.email
                 }).then(() => {
+                   updateprofile(userName , url)
                    // currentUser.displayName = userName;
                     //currentUser.photoURL = url;
                     //currentUser.phoneNumber = productPrice;
+
                     setUserName('');
                     setProductPrice(0);
                     setUserImg(defaultUserImg);
@@ -101,6 +101,7 @@ function AddUserData() {
                     //currentUser.displayName = name;
                     //currentUser.photoURL = url;
                     //currentUser.phoneNumber = null;
+                    updateprofile(name , url)
                     setUserName('');
                     setProductPrice(0);
                     setUserImg(defaultUserImg);

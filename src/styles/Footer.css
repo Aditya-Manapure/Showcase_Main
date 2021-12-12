@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding : 0;
+}
+footer{
+    display: flex;
+    background-color: rgb(142, 167, 250);
+}
+a,li{
+    text-decoration: none;
+    margin: 0px 10px;
+    list-style-type: none;
+    font-size: 20px;
+    color: rgb(43, 43, 43);
+}
+.company{
+    margin : 4rem;
+
+}
+.connect{
+    display: flex;
+    flex-direction:row;
+}
+

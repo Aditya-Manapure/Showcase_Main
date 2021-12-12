@@ -9,6 +9,7 @@
 }
 .card_header{
     display : flex;
+    justify-content: space-between;
 }
 .Avtar_Image{
     width: 40px;
@@ -16,8 +17,13 @@
     margin: 10px;
     border: 2px solid lightgrey;
 }
+.post_user{
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+}
 .card_title{
-    margin : 15px 0px;
+    margin: auto 0px;
 }
 .card_buttons{
     display: flex;
@@ -26,4 +32,21 @@
 .buy_btn{
     background-color: #19a463;
     text-align: center;
+}
+
+.card_image{
+    padding: auto 0;
+}
+.card_image{
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+}
+
+.like_bookmark{
+    width: 6rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    padding : 1rem 1rem 0.5rem 1rem;
+    justify-content: space-between;
 }

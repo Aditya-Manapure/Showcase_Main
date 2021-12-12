@@ -2,19 +2,14 @@
     padding: 0;
     margin: 0;
 }
-.background{
-    /*background: url('../Images/product_background.png') 80% 80% /92% no-repeat fixed;*/
-    overflow-y: hidden;
-}
 .product_bg{
-    overflow-y: scroll;
     width:100%;
     height:100vh;
     padding: 5vh 5vh;
-    background: url('../Images/product_background.png') 80% 80% /92% no-repeat fixed;
+    background: url('../Images/user_background.png') 50% 50% /100% no-repeat fixed;
 }
 .addProduct_container{
-    width: 60rem;
+    width: 50rem;
     padding: 3rem;
     background-color: white;
     box-shadow: 2px 2px 2px 2px rgb( 0 0 0 / 10%);

@@ -14,9 +14,14 @@ import PrivateRoute from './Components/PrivateRoute';
 import AddProductHome from './Components/AddProductHome';
 import Userdata from './Components/AddUserData';
 import ProductPage from './Components/ProductPage';
+import AppMap from './Components/AppMap';
+import UserPage from './Components/UserPage';
+
+import Footer from './Components/Footer';
 
 //Context
 import { AuthProvider } from './Context/AuthContext';
+
 
 
 const App = () => {
@@ -42,7 +47,9 @@ const App = () => {
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/addproduct" component={AddProductHome} />
           <Route path="/adduser" component ={Userdata} />
-          <Route path="/product" component ={ProductPage} />
+          <Route path="/product/:id" component ={ProductPage} />
+          <Route path="/user/:id" component={UserPage} />
+          <Route path="/map" component={AppMap} />
         </Switch>
       </AuthProvider>
     </Router>
