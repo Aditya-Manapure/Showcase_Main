@@ -4,6 +4,7 @@ import {Link, useHistory} from 'react-router-dom';
 import { db } from '../firebaseConfig';
 import { useAuth, AuthProvider } from '../Context/AuthContext';
 import '../styles/loginBg.css';
+import { signInWithGoogle } from "../firebaseConfig.js";
 import {Grid, Paper, Typography,Button,TextField} from '@material-ui/core';
 import { Alert } from 'react-bootstrap';
 
@@ -47,6 +48,8 @@ function Login() {
                         <TextField label = 'Password(should contain at least 6 char)' placeholder ='Enter password' type ='password'  inputRef={passwordRef} fullWidth required />
                         <Button type='Submit' disabled= {loading} color ='primary' style={{margin:'20px 0px'}} variant = 'contained' fullWidth>Sign In</Button>
                     </form>
+                    <button onClick={signInWithGoogle}>Google Signin</button>
+                  
                     <Typography>
                         <Link  to='/forgot-password' style={{textDecoration : "none"}}>
                             Forgot Password?
