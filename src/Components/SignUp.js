@@ -5,6 +5,7 @@ import {Link, useHistory} from 'react-router-dom';
 import {Grid, Paper, Typography,Button,TextField} from '@material-ui/core';
 import { useAuth, AuthProvider } from '../Context/AuthContext';
 import '../styles/loginBg.css';
+import { signInWithGoogle } from "../firebaseConfig.js";
 import { Alert } from 'react-bootstrap';
 const SignUp = () =>{
 
@@ -31,7 +32,7 @@ const SignUp = () =>{
         try{
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value);
+            await (signup(emailRef.current.value, passwordRef.current.value) || signInWithGoogle()) ;
             history.push('/adduser');
             setError('Created an Account');
         }
@@ -59,6 +60,7 @@ const SignUp = () =>{
                         <TextField label = 'Confirm Password' placeholder ='Enter Confirm password' type ='password' inputRef={passwordConfirmRef} fullWidth required />
                         <Button type='Submit' disabled= {loading} color ='primary' style={{margin:'20px 0px'}} variant = 'contained' fullWidth>Sign Up</Button>
                     </form>
+                    <button onClick={signInWithGoogle}>Google Signin</button>
                         <Typography> Already have an account ? 
                             <Link to="/login" style={{textDecoration : "none"}}>
                                 Login
