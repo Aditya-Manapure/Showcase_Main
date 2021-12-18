@@ -61,11 +61,17 @@ const SignUp = () =>{
                         <Button type='Submit' disabled= {loading} color ='primary' style={{margin:'20px 0px'}} variant = 'contained' fullWidth>Sign Up</Button>
                     </form>
                     <button onClick={signInWithGoogle}>Google Signin</button>
+                    <Typography> Login with Mobile No. 
+                            <Link to="/signupmob" style={{textDecoration : "none"}}>
+                                Login
+                            </Link>
+                        </Typography>
                         <Typography> Already have an account ? 
                             <Link to="/login" style={{textDecoration : "none"}}>
                                 Login
                             </Link>
                         </Typography>
+                        
                 </Paper>
             </Grid>
         </>

@@ -16,6 +16,7 @@ import Userdata from './Components/AddUserData';
 import ProductPage from './Components/ProductPage';
 import AppMap from './Components/AppMap';
 import UserPage from './Components/UserPage';
+import SignUpMobNo from './Components/SignUpMobNo';
 
 import Footer from './Components/Footer';
 
@@ -43,6 +44,7 @@ const App = () => {
         <Switch>
           <PrivateRoute exact path="/" component={Home} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/signupmob" component={SignUpMobNo} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/addproduct" component={AddProductHome} />

@@ -4,6 +4,7 @@ import { signInWithGoogle } from "../firebaseConfig.js";
 import { updateProfile } from "firebase/auth";
 
 
+
 const AuthContext = React.createContext({});
 
 export function useAuth() {

@@ -3,6 +3,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
+
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyD77nj28XoCy_2m9hm1c70VDg5WyzbNOmE",
     authDomain: "showcase-b0aef.firebaseapp.com",
@@ -23,4 +24,4 @@ provider.setCustomParameters({prompt:'select_account'});
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 
-export { db, auth, storage };
+export { db, auth, storage,firebaseApp };
